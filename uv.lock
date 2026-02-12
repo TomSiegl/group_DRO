@@ -59,7 +59,7 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
-    { name = "numpy", specifier = "==2.4.*" },
+    { name = "numpy", specifier = "==2.*" },
     { name = "torch", specifier = "==2.10.*" },
 ]
 
