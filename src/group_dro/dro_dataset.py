@@ -16,8 +16,8 @@ class DRODataset(Dataset):
         for x, y, g in self:
             group_array.append(g)
             y_array.append(y)
-        self._group_array = torch.LongTensor(group_array)
-        self._y_array = torch.LongTensor(y_array)
+        self._group_array = torch.LongTensor(group_array).to(torch.get_default_device())
+        self._y_array = torch.LongTensor(y_array).to(torch.get_default_device())
         self._group_counts = (
             (torch.arange(self.n_groups).unsqueeze(1) == self._group_array)
             .sum(1)
