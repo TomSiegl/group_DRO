@@ -53,7 +53,7 @@ class LossComputer:
         )
 
         # update historical losses
-        self.update_exp_avg_loss(group_loss, group_count)
+        self.update_exp_avg_loss(group_loss.detach(), group_count.detach())
 
         # compute overall loss
         if self.is_robust and not self.btl:
@@ -65,7 +65,7 @@ class LossComputer:
             weights = None
 
         # update stats
-        self.update_stats(actual_loss, group_loss, group_acc, group_count, weights)
+        self.update_stats(actual_loss.detach(), group_loss.detach(), group_acc.detach(), group_count.detach(), weights)
 
         return actual_loss
 
